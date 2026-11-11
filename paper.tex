@@ -1,0 +1,878 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,array,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\hypersetup{pdftitle={Pure fibres of the four-site matching map},pdfauthor={Ignoramus}}
+\allowdisplaybreaks
+\newcommand{\C}{\mathbb C}
+\newcommand{\A}{\mathbb A}
+\newcommand{\Gm}{\mathbb G_m}
+\newcommand{\rk}{\operatorname{rank}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\Span}{\operatorname{span}}
+\newcommand{\Ftau}{F_\tau}
+\newcommand{\Fact}{F_\tau^{\mathrm{nz}}}
+\newcommand{\Ddec}{D_\tau}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\title{Pure fibres of the four-site matching map}
+\author{Ignoramus}
+\date{11 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+The four-site matching map sends six pair tensors on four three-dimensional
+complex vector spaces to the sum of their products over the three perfect
+matchings. Over a general output its fibre is known to be a single orbit of
+a three-dimensional torus. We study the fibre over a pure tensor, that is,
+a nonzero product of four vectors. We give complete parametrizations of
+this fibre, organized by nine support and rank patterns after quotienting
+each local space by its target line. The fibre has dimension \(19\) and
+exactly twelve irreducible components of that dimension, each isomorphic to
+\(\A^{18}\times\Gm\). On the open subset where all six pair tensors are
+nonzero, the dimension is \(15\), again with twelve components of maximal
+dimension. The corresponding space of three ordered nonzero summands, one
+decomposable across each of the three pair partitions, has dimension \(12\).
+The proof combines a projected-support obstruction, elementary tensor
+syzygies, and an incidence calculation for isotropic planes. The
+parametrizations allow zero blocks and drops of whole rank;
+lower-dimensional components are not classified.
+\end{abstract}
+
+\section{The fibre and the main results}
+
+Let \(V_1,\ldots,V_4\) be three-dimensional complex vector spaces. Put
+\(U_{ij}=V_i\otimes V_j\) for \(i<j\), and consider the polynomial map
+\[
+ \Phi:\prod_{i<j}U_{ij}\longrightarrow
+ V_1\otimes V_2\otimes V_3\otimes V_4,\qquad
+ \Phi(W)=W_{12}W_{34}+W_{13}W_{24}+W_{14}W_{23}.
+\]
+A product in this formula is the tensor product on disjoint sites, restored
+to the order \(1,2,3,4\), with no sign. Thus the three terms correspond to
+the three perfect matchings of the complete graph on four labelled vertices.
+The map \(\Phi\) is the matching tensor of that graph in the sense
+of~\cite{ign-geometry}, here with all local dimensions equal to three.
+Matching tensors arise from the description of optical quantum experiments
+by graphs~\cite{kgz}; see the introduction of~\cite{ign-geometry}. No
+question from that subject is decided here. For three colours and no
+internal vertices, the same map gives the full-sector coefficients in the
+model of \cite[Section~2]{ign-boundary}, of which no result is used here.
+
+The closure of the image of \(\Phi\) is the join of the three cones of
+tensors decomposable across \(12|34\), \(13|24\) and \(14|23\)
+\cite[Proposition~7.1 and its proof]{ign-geometry}, and over a general
+point of that closure the whole fibre is a single orbit of the
+three-dimensional torus of vertex rescalings
+\cite[Theorem~4.5]{ign-geometry}. That paper lists a description of the
+exceptional outputs among the things it does not prove. Here an output is
+called \emph{exceptional} if its fibre is not a single such orbit. Call a
+tensor in \(V_1\otimes V_2\otimes V_3\otimes V_4\) \emph{pure} if it is a
+nonzero product of four vectors, one from each \(V_i\), and call the fibre
+of \(\Phi\) over a pure tensor a \emph{pure fibre}. A pure tensor lies in
+all three cones and is exceptional: its fibre has dimension \(19\), not
+three (Theorem~\ref{main:geometry}).
+
+Fix nonzero \(c_i\in V_i\) and \(\tau\in\C^*\). We study the reduced affine
+algebraic set
+\[
+ \Ftau=\{W:\Phi(W)=\tau c_1c_2c_3c_4\}.
+\]
+No quotient by changes of basis is taken. Let
+\[
+ \Fact=\{W\in\Ftau:W_{ij}\ne0\text{ for all }i<j\}.
+\]
+This is an open subvariety. Its defining nonvanishing condition is equivalent
+to requiring all three matching products to be nonzero.
+
+The same question can be asked of the three products alone: in which ways
+is a pure tensor a sum of three nonzero tensors, one decomposable across
+each of the three pair partitions? Let \(\mathcal S_{ij|kl}^{\times}\) be
+the set of nonzero tensors of the form \(XY\) with \(X\in U_{ij}\) and
+\(Y\in U_{kl}\), the product being formed as in the definition of \(\Phi\).
+Define
+\[
+ \Ddec=\left\{(A,B,C)\in
+ \mathcal S_{12|34}^{\times}\times
+ \mathcal S_{13|24}^{\times}\times
+ \mathcal S_{14|23}^{\times}:
+ A+B+C=\tau c_1c_2c_3c_4\right\}.
+\]
+The summands are ordered and their three partitions are prescribed. They need
+not be pure.
+
+\begin{theorem}\label{main:geometry}
+With the preceding hypotheses:
+\begin{enumerate}
+\item \(\dim\Ftau=19\). Exactly twelve irreducible components have dimension
+\(19\), and each is isomorphic to \(\A^{18}\times\Gm\).
+\item \(\dim\Fact=15\). Exactly twelve irreducible components of \(\Fact\)
+have dimension \(15\).
+\item The matching-product map \(\Fact\to\Ddec\) is a Zariski locally trivial
+bundle with fibre \((\Gm)^3\). Consequently \(\dim\Ddec=12\), and exactly
+twelve irreducible components of \(\Ddec\) have dimension \(12\).
+\end{enumerate}
+These assertions specify the components of maximal dimension, not the
+complete irreducible decompositions of these varieties.
+\end{theorem}
+
+The large components of the full fibre are easy to exhibit. Choose a vertex
+\(i\), two of its neighbours \(j,k\), and write \(z\) for the remaining vertex.
+Set
+\begin{equation}\label{main:large}
+ W_{jz}=W_{kz}=0,\qquad
+ W_{iz}=q c_ic_z,\qquad W_{jk}=(\tau/q)c_jc_k,
+ \qquad q\ne0,
+\end{equation}
+and leave \(W_{ij},W_{ik}\) arbitrary. The two free blocks do not contribute
+to the output because their complementary blocks vanish. The first assertion
+of the theorem includes the global upper bound and the fact that these are
+all components of that dimension. The second and third assertions concern
+cancellation among three nonzero products, where no block is free in this
+way. There the components of dimension fifteen are the closures in
+\(\Fact\) of the strata whose projected support, defined below, is a
+triangle with ranks \((2,1,1)\); the
+chart~\eqref{geom:triangle-chart} parametrizes these strata, and
+Section~\ref{examples:section} gives an explicit point.
+
+Here is the classification used to prove the theorem. Let
+\(\pi_i:V_i\to V_i/\C c_i\), and write
+\(\overline W_{ij}=(\pi_i\otimes\pi_j)W_{ij}\).
+The \emph{projected support graph} has edge \(ij\) precisely when
+\(\overline W_{ij}\ne0\). A zero projected block may have a nonzero whole
+block.
+
+A block \(W_{ij}\) is \emph{pure} if it is a nonzero multiple of
+\(c_ic_j\). The \emph{star} at a vertex is the set of the three edges at
+it, and that vertex is its \emph{centre}. A \emph{wedge} is a projected
+support consisting of two adjacent edges, \emph{centred} at their common
+vertex. The other two vertices of a wedge, and the three vertices other
+than the centre of a star, are its \emph{leaves}. If the projected support
+is a triangle, the blocks joining its vertices to the fourth vertex are its
+\emph{spokes}; if its projected ranks are \((2,1,1)\), the edge of rank two
+is the \emph{high} edge and the other two are the \emph{low} edges. A point
+of \(\Ftau\) is \emph{active} if it lies in \(\Fact\); an active stratum is
+the intersection of a stratum with \(\Fact\), and an active component is an
+irreducible component of \(\Fact\). The exceptional site in
+Lemma~\ref{atlas:crossing} only labels a row of its table; it is unrelated
+to exceptional outputs.
+
+\begin{theorem}\label{main:atlas}
+Every point of \(\Ftau\), up to simultaneous relabelling of the four sites,
+has exactly one of the nine projected support and rank patterns in
+Table~\ref{main:table}. Every pattern occurs. Section~\ref{atlas:section}
+gives complete whole-tensor parametrizations of all nine types.
+The dimension in the table is that of a stratum with its labelled support
+and rank assignment fixed.
+\end{theorem}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{@{}llrr@{}}
+\toprule
+Projected support & Nonzero projected ranks & Dimension & Nonzero-block part\\
+\midrule
+Empty & --- & 11 & \(\le11\)\\
+One edge & \(1\) & 14 & 12\\
+One edge & \(2\) & 15 & 13\\
+Adjacent edges & \(1,1\) & 17 & 13\\
+Adjacent edges & \(2,1\) & 18 & empty\\
+Adjacent edges & \(2,2\) & 19 & empty\\
+Triangle & \(1,1,1\) & 14 & 14\\
+Triangle & \(2,1,1\) & 15 & 15\\
+Four-cycle & \(1,1,1,1\) & 12 & 12\\
+\bottomrule
+\end{tabular}
+\caption{Complete projected types. The last column concerns the intersection
+with \(\Fact\); only an upper bound is needed in its first row.}
+\label{main:table}
+\end{table}
+
+The classification is a parametrization by finitely many types, with
+redundant parameters where explicitly indicated. It is not a classification
+of orbits under local linear groups. In particular the empty-support
+parametrization uses isotropic subspaces, rather than a finite list of
+coordinate representatives.
+
+\subsection*{Relation to earlier work}
+The problem is a nonminimal decomposition problem at an exceptional output,
+for three different paired Segre cones.
+Generic uniqueness results for joins, such as
+Ballico's Proposition~8~\cite{ballico}, assume a general point of the relevant
+join and its prescribed join rank. The target here belongs to each
+constituent Segre cone. Nonminimal decomposition results of
+Lovitz and Petrov~\cite[Section~6.2]{lovitzpetrov} concern product tensors
+relative to one fixed factorization; the three factorizations above differ.
+Neither statement determines this fibre.
+
+The ingredients of our proof have familiar counterparts. The intersection of
+two crossing partition Segre varieties is the Segre variety for their common
+refinement; see the proof of Theorem~6.1 in Section~6 of Gesmundo, Han and
+Lovitz~\cite{ghl}, in the numbering of arXiv:2407.16767v2. This accounts
+for the rank-one factors in the four-cycle case. Zero-slice decompositions,
+as studied by Karam~\cite{karam} (Proposition~3.2 in the numbering of
+arXiv:2308.07101v1), provide a broader setting for the elementary syzygies
+used after a triangle reduction. The two-term case used repeatedly below,
+in which a relation \(xA+yB=0\) between nonzero tensors \(A,B\), with
+nonzero vectors \(x,y\) at two different sites, forces \(A=hy\) and
+\(B=-hx\) for a common factor \(h\), is the two-leaf case of
+\cite[Theorem~2.1]{ign-relations}; see also Corollary~9.2 there.
+The proof of Lemma~\ref{support:degree} contracts with a covector chosen
+outside finitely many kernels. The same generic-contraction and
+finite-union device appears, in another setting, in Section~3 of the
+public provisional note~\cite{axis}; no proof here depends on that note.
+The quadratic-form calculations below use ordinary isotropic-subspace
+geometry~\cite{ekm}. The surjectivity of the bundle in
+Theorem~\ref{main:geometry}(3) is the four-vertex construction in the
+proof of~\cite[Proposition~7.1]{ign-geometry}.
+
+Our subject is the complete fibre over a pure target in this fixed format,
+including its whole-tensor lifts and its sharp dimension bounds. The result
+does not assert a general theorem on partition rank~\cite{naslund} or an
+exclusion for larger matching systems.
+Bounded searches by AI agents found no earlier statement of the results
+of this paper; this is not proof that they are new.
+
+\section{Exhaustion of the projected supports}
+
+All tensor products in the proofs retain the actual given blocks. We may
+choose splittings \(V_i=\C c_i\oplus H_i\), with \(\dim H_i=2\), when
+coordinates are useful.
+
+\begin{lemma}\label{support:degree}
+The projected support graph of a point of \(\Ftau\) has maximum degree at
+most two.
+\end{lemma}
+\begin{proof}
+Suppose that all three projections incident to a vertex \(i\) are nonzero.
+Their contractions are three nonzero linear maps from
+\(\operatorname{Ann}(c_i)\) to the corresponding quotient spaces. A finite
+union of proper linear subspaces cannot cover a complex vector space.
+Choose \(\alpha\in\operatorname{Ann}(c_i)\) outside their three kernels.
+
+Write the other vertices, the leaves of the star at \(i\), as \(j,k,z\).
+The whole contractions \(f_j,f_k,f_z\)
+of the incident blocks by \(\alpha\) have nonzero quotient images, so each
+\(f_r\) is independent of \(c_r\). Choose fixed dual functionals
+\(\delta_r,\epsilon_r\) satisfying
+\[
+ \delta_r(c_r)=1,\quad \delta_r(f_r)=0,\qquad
+ \epsilon_r(c_r)=0,\quad \epsilon_r(f_r)=1.
+\]
+Contract the leaf slots by
+\(\delta_j+u\epsilon_j,\delta_k+v\epsilon_k,\delta_z+w\epsilon_z\).
+Keeping the centre slot whole gives an identity
+\[
+ A(u)\phi(v,w)+B(v)\psi(u,w)+C(w)\chi(u,v)=\tau c_i.
+\]
+The scalar factors have the displayed absent-variable dependencies because
+their blocks do not meet the missing leaf. Applying \(\alpha\) yields
+\[
+ u\phi(v,w)+v\psi(u,w)+w\chi(u,v)=0.
+\]
+Evaluation at \((1,0,0),(0,1,0),(0,0,1)\) gives
+\(\phi(0,0)=\psi(0,0)=\chi(0,0)=0\). The whole identity at the origin would then say
+\(0=\tau c_i\), a contradiction. This proof allows zero leaf blocks and
+arbitrary components along the target lines.
+\end{proof}
+
+\begin{lemma}\label{support:triangle}
+If the projected support is a triangle, at least two of its edges have
+rank one. More precisely, if \(z\) is the isolated projected vertex, there
+is a unique triangle vertex \(i\) whose whole spoke to \(z\) is a nonzero
+multiple of \(c_ic_z\). The two triangle edges incident to \(i\) have
+rank-one projections.
+\end{lemma}
+\begin{proof}
+Write the triangle vertices as \(l,m,t\), with
+\[
+ L=W_{lm},\quad P=W_{lt},\quad R=W_{mt},\qquad
+ Q=W_{lz},\quad S=W_{mz},\quad K=W_{tz}.
+\]
+The three triangle projections are nonzero; the other three vanish.
+Projecting at \(l,m,z\) in the full equation isolates
+\(\overline L(\mathrm{id}_t\otimes\pi_z)K=0\). Thus
+\(K=p_t c_z\). The other two triple projections give
+\(Q=p_l c_z,S=p_m c_z\). Cancelling the fixed nonzero factor \(c_z\),
+\[
+ Lp_t+Pp_m+Rp_l=\tau c_lc_mc_t.
+\]
+Quotienting each triangle space by its actual line \(\Span(p_r)\), with
+\(\Span(0)=0\), kills the left side. Some \(c_i\) must therefore belong
+to \(\Span(p_i)\). Write \(p_i=\lambda c_i\), where \(\lambda\ne0\).
+
+Let \(j,k\) be the other triangle vertices and put
+\(A=W_{ij},B=W_{ik},C=W_{jk}\). Then
+\[
+ Ap_k+Bp_j+\lambda c_iC=\tau c_ic_jc_k.
+\]
+If \(\bar p_j=0\), projection at \(i,j\) forces \(p_k=0\), and projection at
+\(i,k\) then forces \(p_j=0\). The equation would imply \(\bar C=0\),
+a contradiction. Similarly \(\bar p_k\ne0\). This also proves uniqueness
+of the pure spoke.
+Indeed a pure spoke at \(j\) or \(k\) would mean \(p_j\in\C c_j\) or
+\(p_k\in\C c_k\), that is, \(\bar p_j=0\) or \(\bar p_k=0\).
+
+Project only at \(i\), writing \(A',B'\) for the resulting tensors.
+The identity \(A'p_k+B'p_j=0\), with \(p_j,p_k\ne0\), implies
+\(A'=hp_j,B'=-hp_k\) for one \(h\ne0\): apply the quotient by \(\Span(p_j)\)
+at \(j\), then cancel the nonzero factors. Choose a whole lift \(u\) of \(h\).
+The complete whole blocks have the form
+\begin{equation}\label{support:triangle-form}
+ A=up_j+c_iv,\qquad B=-up_k+c_iw,\qquad
+ C=\lambda^{-1}(\tau c_jc_k-vp_k-p_jw).
+\end{equation}
+In particular \(\bar A=h\bar p_j\) and \(\bar B=-h\bar p_k\) have rank one.
+No initial rank-one assumption was used.
+\end{proof}
+
+\begin{proof}[Proof of the support assertion in Theorem~\ref{main:atlas}]
+A simple graph on four vertices of maximum degree two is empty, one edge,
+two adjacent edges, two disjoint edges, a three-edge path, a triangle,
+or a four-cycle. The disjoint-edge and three-edge-path graphs each have
+exactly one supported perfect matching. Fourfold projection of \(\Phi(W)\)
+would then be one nonzero product, whereas the projected target is zero.
+
+For a four-cycle, take its missing edges to be \(lm,tz\).
+The fourfold equation reads
+\(\overline P\,\overline S=-\overline Q\,\overline R\ne0\).
+Across \(lt|mz\) the left side has rank one and the right side has rank
+\(\rk\overline Q\,\rk\overline R\), since its matrix is a reordered
+Kronecker product. Both ranks on the right are one. The other crossing
+cut gives the same conclusion for \(P,S\).
+Lemma~\ref{support:triangle} leaves only ranks \(111\) and \(211\) for
+a triangle. All remaining nonzero ranks are one or two because the local
+quotients have dimension two. This gives the nine types.
+The complete lift charts below establish sufficiency and nonemptiness.
+For instance, in \eqref{main:large}, free blocks \(W_{ij},W_{ik}\) of
+projected ranks \((0,0)\), \((1,0)\), \((2,0)\), \((1,1)\), \((2,1)\) and
+\((2,2)\) give the first six types of Table~\ref{main:table} in order;
+\eqref{atlas:triangle-form} with \(v=q\) and \(w=0\) gives a triangle of
+ranks \((1,1,1)\); the point of Section~\ref{examples:section} is a
+triangle of ranks \((2,1,1)\); and \eqref{atlas:cycle-form} with
+\(\gamma=1\) and all \(u_i\in H_i\setminus\{0\}\) gives a four-cycle.
+\end{proof}
+
+\input{atlas}
+
+\section{Dimensions of the strata}\label{geom:section}
+
+We use algebraic dimension for constructible strata, equivalently the
+dimension of their closures. A whole block with zero double projection
+belongs to a five-dimensional vector space. The loci of blocks with
+projected ranks one and two have dimensions \(8\) and \(9\), respectively:
+the corresponding loci in \(\operatorname{Mat}_{2\times2}(\C)\) have
+dimensions \(3\) and \(4\), and the five target-containing entries are free.
+
+\subsection{The empty projected support}
+
+The empty-support chart identifies a point with a vector
+\(a\in E=\C^6\) and four maps \(B_i:H_i^*\to S_i\), where \(S_i\)
+is the coordinate star at \(i\), satisfying
+\begin{equation}\label{geom:empty}
+ q(a)=\tau,\qquad U=\sum_i\im B_i\subset a^\perp,\qquad q|_U=0,
+ \qquad q(x)=x_{12}x_{34}+x_{13}x_{24}+x_{14}x_{23}.
+\end{equation}
+Here perpendicularity uses the polar form of \(q\).
+The subspace \(a^\perp\) is nondegenerate of dimension five, so
+\(r=\dim U\le2\).
+
+\begin{proposition}\label{geom:empty-dimension}
+The stratum with all six double projections zero has dimension \(11\).
+\end{proposition}
+\begin{proof}
+The actual maps determine \(U\). On fixed-rank Grassmannian charts,
+recovery of their image is regular. We may therefore count the incidence
+data \((U,a,(B_i))\), imposing the open condition that the images span \(U\),
+without adding an artificial subspace parameter.
+
+Identify \(E\) with \(\bigwedge^2\C^4\), changing the sign of the \(13\)
+coordinate. Then \(q\) becomes the Pfaffian, and \(S_i=e_i\wedge\C^4\).
+A nonzero isotropic bivector is decomposable. An isotropic two-plane \(U\)
+is consequently of the form
+\[
+ U=\ell\wedge H,\qquad \ell\subset H\subset\C^4,\quad
+ \dim\ell=1,\quad\dim H=3,
+\]
+for a unique flag. Indeed two independent decomposable generators have
+wedge zero, so their supporting two-planes meet in a line and span a
+three-space. This also proves the converse.
+
+First suppose \(r=2\) and \(\ell=\C e_i\).
+Then \(U\subset S_i\). It contains \(m=0,1,\) or \(2\) of the three
+coordinate axes of \(S_i\), and these alternatives have parameter
+dimensions \(2-m\). For \(j\ne i\), \(U\cap S_j\) is a line precisely
+when the corresponding coordinate edge lies in \(U\). Hence
+\(\sum_j\dim(U\cap S_j)=2+m\).
+For any fixed isotropic two-plane, \(U^\perp\) has dimension four,
+radical \(U\), and a nondegenerate two-dimensional quotient.
+The set \(q(a)=\tau\) in \(U^\perp\) is thus nonempty of dimension three.
+The maps \(B_j\) contribute \(2(2+m)\) parameters. The total dimension is
+\[
+ (2-m)+3+2(2+m)=9+m\le11.
+\]
+The spanning condition is a nonempty open condition.
+
+If \(\ell\) is not a coordinate line, then \(U\) is contained in no star,
+and \(U\cap S_i\) has dimension one exactly when \(e_i\in H\).
+Let \(k\) be the number of coordinate axes contained in \(H\).
+Spanning \(U\) by these intersections requires \(k\ge2\), and \(k\le3\).
+For \(k=2\), \(H\) varies in an open subset of \(\mathbf P^1\);
+\(\ell\) varies in \(\mathbf P(H)\) outside the plane spanned by those
+two axes, so the flag parameter dimension is three. The maps contribute
+four and \(a\) contributes three, for a total of ten.
+For \(k=3\), \(H\) is a coordinate three-space and \(\ell\) varies in
+its projective plane, excluding the coordinate points. The flag dimension
+is two, the maps contribute six, and \(a\) contributes three, for a total
+of eleven.
+Here the three nonzero intersections are the lines \(\ell\wedge e_i\) for
+the three axes \(\C e_i\subset H\); wedging with \(\ell\) identifies
+\(H/\ell\) with \(U\), and the images of these axes span \(H/\ell\), so
+the three lines span \(U\). If \(\ell\) lies in the plane of two of these
+axes, their two lines coincide and the third differs; each \(U\cap S_i\)
+is still a line, so the maps still contribute six and spanning is still
+a nonempty open condition.
+These are all the two-plane cases.
+
+If \(r=1\), \(U\) must lie in at least one star. A non-coordinate line
+lies in exactly one star and has two line parameters and two map
+parameters. A coordinate edge line has no line parameter and four map
+parameters, from its two incident stars. For either type of isotropic
+line, \(q(a)=\tau\) in \(U^\perp\) has dimension four. Thus \(r=1\)
+contributes dimension eight. For \(r=0\) the dimension is five.
+
+The incidence alternatives are finite and retain all intersection jumps.
+They give an upper bound of eleven. Equality is also visible in
+\eqref{main:large} by requiring both free blocks to have zero double
+projection: this is \(\A^{10}\times\Gm\), of dimension eleven.
+\end{proof}
+
+\subsection{The remaining charts}\label{geom:counts}
+
+The following counts use fixed complements \(H_i\) and whole-vector
+parameters. They do not count arbitrary changes of basis as extra
+parameters. In every chart whose dimension is asserted, the parameters
+are recoverable regularly on finitely many nonzero-coordinate charts.
+This recovery is given for the wedges of ranks \((1,1)\) in
+Remark~\ref{atlas:wedge-parameters} and for the triangles in
+Proposition~\ref{atlas:triangle}; for the single-edge charts, the other
+wedges and the rows of the crossing table it is written below, where each
+is counted; for the four-cycle, the end of this subsection identifies the
+redundancy exactly.
+
+For a single rank-one projected edge \(L\), write
+\(K=\kappa c_tc_z\). When \(\kappa\ne0\) and both crossing products are
+nonzero, the four vectors \(p,q,r,s\) contribute twelve parameters and
+\(\kappa\) contributes one. The condition
+\[
+ \rk\bigl(\bar p\bar s+\bar q\bar r\bigr)=1
+\]
+cuts a genuine hypersurface: the determinant is, up to sign, the product
+of the two determinants of the endpoint vector pairs. The nonzero-matrix
+condition removes neither entire hypersurface component. This chart has
+dimension twelve. With one crossing product zero, there are \(\kappa\),
+two whole vectors, and a free zero-projection partner, again giving
+\(1+3+3+5=12\).
+In these \(\kappa\ne0\) charts \(K\) gives \(\kappa\) as its \(c_tc_z\)
+coefficient, contraction at \(c_t\) or \(c_z\) recovers each named vector
+from its block among \(P,Q,R,S\), and a free partner is itself a block.
+When \(\kappa=0\), the free rank-one-projected \(L\) contributes eight.
+A zero crossing product leaves the scalar of the two pure blocks whose
+product is the target, and a free zero-projection block, giving
+\(8+1+5=14\). If both products are nonzero,
+each exceptional-site chart has two nonzero scalars and one free whole
+vector, with the other vector solved by the target equation; its
+dimension is \(8+5=13\).
+For \(\kappa=0\), \(L\) and any free block are blocks of the tuple, and
+the scalar of a zero crossing product is the coefficient of the pure
+block \(Q\) in the first case of Lemma~\ref{atlas:crossing} and of \(P\)
+in the second. In each row of the crossing table the two scalars are the
+coefficients of its two pure blocks, and contraction at the \(c\) factor
+shown there recovers \(u\) from \(P\) or \(S\).
+The single rank-one edge stratum therefore has dimension fourteen.
+
+For a single rank-two projected edge, the \(\kappa\ne0\) chart has
+dimension thirteen, since its endpoint independence conditions are open.
+For \(\kappa=0\), the free block has dimension nine, so the two preceding
+crossing alternatives give dimensions fifteen and fourteen.
+This stratum has dimension fifteen.
+In its charts the parameters are recovered as for rank one.
+
+For a rank-\((1,1)\) wedge, the five families in the atlas have dimensions
+\begin{equation}\label{geom:wedge-counts}
+ 17,\quad15,\quad15,\quad13,\quad12,
+\end{equation}
+respectively. In the first family these are two free blocks of dimension
+eight and one nonzero scalar. In the second and third they are a free
+block of dimension eight, two whole vectors and a nonzero scalar.
+In the fourth, the free parameters are two scalars, a whole vector \(q\),
+two vectors \(A\in H_m,B\in H_t\), a whole vector \(x\), and one scalar
+\(\rho\); their dimensions sum to \(2+3+2+2+3+1=13\), and \(y\) is
+determined. In the fifth they are \(\eta,v,s,k,\alpha,\beta\), of total
+dimension \(1+3+3+3+1+1=12\).
+All stated nonvanishing conditions are open, and the fixed-coordinate
+recovery in the atlas removes any ambiguity.
+
+A rank-\((2,1)\) wedge has two charts. Their dimensions are
+\(9+8+1=18\) and \(9+1+3+3=16\).
+A rank-\((2,2)\) wedge has dimension \(9+9+1=19\).
+These counts include the arbitrary whole lifts of its free blocks.
+In these charts the free blocks are blocks of the tuple. The scalar is
+the \(c_lc_z\) coefficient of \(Q\), except in the second \((2,1)\)
+chart, where it is the \(c_mc_z\) coefficient of \(S\) and contraction
+of \(Q\) at \(c_z\) and of \(R\) at \(c_m\) recovers the two vectors.
+
+For triangles use, for example, the pure spoke \(K=\kappa c_tc_z\).
+The common chart is
+\begin{equation}\label{geom:triangle-chart}
+ \begin{gathered}
+ Q=q c_z,\quad S=s c_z,\quad K=\kappa c_tc_z,\\
+ P=qh+v c_t,\quad R=-sh+w c_t,\quad
+ L=\kappa^{-1}(\tau c_lc_m-vs-qw).
+ \end{gathered}
+\end{equation}
+Require \(h\in H_t\setminus\{0\}\); this removes the entire additive
+ambiguity in choosing its whole lift. The parameters
+\(q,s,v,w,h,\kappa\) have total dimension fifteen.
+For triangle ranks \(211\), the two quotient endpoint pairs
+\((\bar q,\bar v)\) and \((\bar s,\bar w)\) are independent; these
+are open nonempty conditions. For ranks \(111\), the opposite projected
+matrix is nonzero and its determinant vanishes. Its determinant factors
+as the product of those two endpoint determinants, giving a union of
+hypersurfaces in this parameter domain. Its dimension is fourteen.
+There are only three possible pure-spoke branches for a fixed triangle.
+
+Finally the four-cycle chart has a nonzero scalar and four whole vectors
+outside their target lines, giving thirteen parameters. The entire
+redundancy is
+\[
+ (u_l,u_m,u_t,u_z)\longmapsto
+ (a u_l,a u_m,a^{-1}u_t,a^{-1}u_z),\qquad a\in\Gm.
+\]
+Equality of the three products \(u_lu_t,u_lu_z,u_mu_t\) forces exactly
+this relation; the fourth then agrees. Normalizing a nonzero quotient
+coordinate of \(u_l\) gives finite parameter charts of dimension twelve.
+
+Together with Proposition~\ref{geom:empty-dimension}, these calculations
+prove the full-stratum dimension column of Table~\ref{main:table}.
+
+\section{Maximal components and nonzero summands}
+
+\begin{proof}[Proof of Theorem~\ref{main:geometry}(1)]
+For each centred wedge let \(X_{i;jk}\) be the set
+\eqref{main:large}. It is closed in \(\Ftau\): impose the two zero-block
+conditions and the two pure-line conditions. The fibre equation then
+requires the two pure scalar coefficients to satisfy \(qr=\tau\).
+Consequently
+\[
+ X_{i;jk}\simeq\A^{18}\times
+ \operatorname{Spec}\C[q,r]/(qr-\tau)
+ \simeq\A^{18}\times\Gm.
+\]
+Its rank-\((2,2)\) projected subset is nonempty and dense, so its closure
+is exactly \(X_{i;jk}\). There are \(4\binom32=12\) centred wedges.
+Their varieties are distinct because their dense projected supports differ.
+
+The fibre is a finite union of its labelled strata.
+All strata other than rank-\((2,2)\) wedges have dimension at most eighteen.
+Taking closures gives a finite closed cover by the twelve \(X_{i;jk}\)
+and sets of dimension at most eighteen. Hence \(\dim\Ftau=19\).
+An irreducible component of dimension nineteen must be contained in one
+of these twelve closed irreducible sets, and maximality makes it equal
+to that set. Conversely each \(X_{i;jk}\) is such a component, since any
+component containing it has dimension nineteen and must be one of the
+twelve. This proves both assertions.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{main:geometry}(2)]
+Intersect every chart with the condition that all six whole blocks are
+nonzero. For a single projected edge only the \(\kappa\ne0\) chart with
+both crossing products nonzero survives, giving dimensions twelve and
+thirteen for projected ranks one and two.
+For a rank-\((1,1)\) wedge only its fourth and fifth families survive,
+of dimensions thirteen and twelve. Wedges of ranks \(21\) and \(22\)
+force a whole block to vanish. Both triangle types and the four-cycle
+are entirely nonzero-block charts. The empty support has dimension at
+most eleven. This proves the last column of Table~\ref{main:table}
+and gives \(\dim\Fact=15\).
+
+The dimension-fifteen strata are precisely the rank-\((2,1,1)\) triangles.
+There are twelve labelled choices: an isolated projected vertex and a
+high edge among the other three vertices.
+For any fixed choice, the chart \eqref{geom:triangle-chart}, with the
+fixed-complement convention, has parameter domain
+\[
+ \kappa\in\Gm,\quad h\in H_t\setminus\{0\},\quad
+ (\bar q,\bar v),(\bar s,\bar w)\text{ independent}.
+\]
+It is a nonempty open subset of affine fifteen-space. The recovery of
+its actual parameters is regular on nonzero-coordinate charts. Hence
+this stratum is irreducible of dimension fifteen.
+
+Its closure within \(\Fact\) is therefore irreducible of dimension fifteen.
+These twelve closures are distinct. Different isolated vertices impose
+different closed zero-projection equations. For a fixed isolated vertex,
+different high edges are separated by the closed rank-at-most-one
+conditions on the two low edges. Each other triangle stratum violates
+one of the relevant closed conditions.
+All remaining active strata have dimension at most fourteen.
+The same finite-closed-cover argument as above now proves that the
+twelve closures are exactly the components of maximal dimension in
+\(\Fact\).
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{main:geometry}(3)]
+For nonzero vector spaces \(U,V\), the factorization map
+\[
+ (U\setminus0)\times(V\setminus0)\longrightarrow
+ \{a\otimes b:a,b\ne0\}
+\]
+has fibre \(\Gm\), acting by \((a,b)\mapsto(sa,s^{-1}b)\).
+It is Zariski locally trivial. In chosen bases, on the chart \(T_{pq}\ne0\)
+one normalized factorization is
+\[
+ a_p=1,\qquad b_j=T_{pj},\qquad a_i=T_{iq}/T_{pq}.
+\]
+The rank-one equations imply \(T_{ij}=a_i b_j\).
+
+Apply this independently to each of the three paired partitions and
+restrict to \(A+B+C=\tau c_1c_2c_3c_4\).
+The result is a surjective locally trivial \((\Gm)^3\)-bundle
+\(\Fact\to\Ddec\). Dimensions therefore differ by three.
+The bundle also induces a bijection on irreducible components.
+Indeed its inverse image over an irreducible base component is locally
+a product with an irreducible torus; a dense trivializing open set has
+irreducible inverse image, whose closure fills that inverse image.
+For the last claim, a point of that inverse image lies over a second
+trivializing open set; the two sets meet the irreducible base component
+in a common dense open subset, and in the product chart over the second
+set the inverse image of that subset is dense, so the point lies in the
+closure.
+Conversely maximal irreducible closed subsets upstairs project densely
+onto base components, by the local product description.
+Thus all component dimensions decrease by three, proving the claim.
+\end{proof}
+
+\begin{remark}
+The twelve largest components of \(\Ftau\) are disjoint from \(\Fact\).
+The active components of dimension fifteen therefore come from
+lower-dimensional components of the full fibre. We do not claim that
+every active point belongs to one of the twelve largest active components,
+nor identify their boundary intersections.
+\end{remark}
+
+\section{Examples and scope}\label{examples:section}
+
+For a rank-\((2,1,1)\) triangle, choose bases \((c_i,a_i,b_i)\) and set
+\[
+ \begin{gathered}
+ Q=a_lc_z,\quad S=a_mc_z,\quad K=c_tc_z,\\
+ P=a_la_t+b_lc_t,\qquad
+ R=-a_ma_t+b_mc_t,\\
+ L=\tau c_lc_m-b_la_m-a_lb_m.
+ \end{gathered}
+\]
+Direct substitution gives \(LK+PS+QR=\tau c_lc_mc_tc_z\).
+The whole ranks of \(L,P,Q,R,S,K\) are respectively \(3,2,1,2,1,1\).
+The projected triangle has ranks \(2,1,1\); every matching product is
+nonzero. The open family \eqref{geom:triangle-chart} explains the
+fifteen-dimensional stratum containing such points.
+
+The empty projected support can also exhibit nonzero cancellation.
+Use one quotient variable \(x\) at site \(1\) and one \(y\) at site \(2\),
+and consider the affine edge forms
+\[
+ E_{12}=1-2y,\quad E_{13}=1+x,\quad E_{14}=1-x,\quad
+ E_{23}=1+y,\quad E_{24}=1+y,\quad E_{34}=1.
+\]
+They satisfy
+\[
+ E_{12}E_{34}+E_{13}E_{24}+E_{14}E_{23}=3.
+\]
+Homogenizing separately at each site with its coordinate \(c_i\) gives
+six nonzero whole edge tensors with zero double projections. The
+corresponding isotropic image \(U\) has dimension two.
+Multiplying all six edges by a scalar \(s\) with \(3s^2=\tau\) gives the
+prescribed target. This example illustrates why projected support
+alone does not determine whole-block support.
+
+The assumptions \(\tau\ne0\) and \(\dim V_i=3\) are used explicitly.
+The nonzero target is essential in the contradiction that proves
+Lemma~\ref{support:degree} and in the reductions to a pure spoke. The
+quotient dimension two bounds the projected ranks and enters the incidence
+count. We make no assertion
+for the zero fibre, for other local dimensions, or for scheme
+multiplicities. The lower-dimensional components and the incidence
+relations between the listed strata remain further questions.
+
+\section*{Proof artifacts and AI use}
+The author, who publishes under the pseudonym Ignoramus, directed this
+project and takes responsibility for the paper. The author used OpenAI
+Codex to produce the results, proofs, checking program and text of this
+paper, and Anthropic Claude to check and revise it as described below,
+and has not verified the mathematics; no human has checked the proofs. No
+human peer review or formal proof-assistant verification is claimed, and
+no AI system is listed as an author. The attribution to OpenAI Codex, of
+this work and of the Codex checks described below, rests on the project's
+records and the author's account; which model versions were used at each
+step has not been verified.
+
+All checks described in this section were made by AI agents. The
+classifications of the single edge of projected rank two, of the wedge of
+projected ranks \((2,1)\) and of the empty projected support,
+Lemma~\ref{support:triangle} in its present form, the assembly into nine
+types, and every dimension and component count,
+Theorem~\ref{main:geometry} included, were first obtained in the review
+that led to this paper, shortly before it was drafted; the other results
+go back to earlier stages of the project, some of them in a weaker form.
+In that review, before drafting, agents of the Codex workflow checked the
+arguments and compared the results with published work. Two further
+agents of that workflow then reviewed the manuscript: one reported that
+it had reconstructed the proofs analytically, claiming no independent
+machine computation, and that it had found no error or gap requiring
+repair; the other checked the claims of novelty, the citations and the
+wording. Both had seen the workflow's
+earlier assessments of the results, so neither review was blind.
+
+Anthropic Claude prepared this revision at the author's instruction. It
+wrote this section and the abstract. In Section~1 it wrote the paragraph
+that defines pure tensors, the definitions of terms, the sentence that
+names the components of dimension fifteen, the sentence on searches for
+earlier statements, and the sentences that cite the author's earlier
+papers and~\cite{kgz}; it added the reference~\cite{naslund}, made the
+pointers to the literature exact and reworded the comparison with the
+note~\cite{axis}. It also changed wording in other places and renamed
+letters that carried two meanings in the proofs of
+Lemmas~\ref{support:degree} and~\ref{support:triangle} and in the
+treatment of the empty projected support, which changed letters in six
+displayed formulas. It added short sentences that write out steps the
+earlier text left to the reader: the uniqueness in
+Lemma~\ref{support:triangle}, an instance of each of the nine types, one
+point each in the proofs of Propositions~\ref{atlas:empty}
+and~\ref{geom:empty-dimension} and of Theorem~\ref{main:geometry}, and,
+in Section~\ref{geom:counts}, how the parameters are recovered in the
+single-edge charts, in the rows of the crossing table and in the wedges
+of ranks \((2,1)\) and \((2,2)\). Exact programs, not posted with the
+paper, tested these sentences on examples; for the step in the proof of
+Theorem~\ref{main:geometry}(3) they tested only the two facts it uses.
+It changed no statement of a theorem, proposition, lemma or remark, and
+it removed or altered no step of the earlier proofs.
+
+Claude agents also checked the paper. One read every line of the
+unrevised text and found no error and no gap affecting a theorem. One
+compared the paper with the author's four earlier papers and found none
+of its results there. A fact-check compared the citations then in the
+text with the cited works and led to corrections. The Claude session that
+coordinated this revision compared its own sentences citing the author's
+earlier papers with those papers, and an earlier draft of this section
+with the project's records; a further agent audited every verdict, and
+this section was corrected. Three agents, each working alone, then read
+the whole text as critics, before the corrections that followed and
+before the short added sentences described above were written; each
+checked every numbered statement by hand and tested the
+parametrizations, the dimensions and the list of nine types with programs
+of its own. None found a mathematical error; each found faults of
+wording, credit and definition, most of which were then corrected. The
+corrections and the added sentences were then compared line by line with
+the unrevised text by one further Claude agent that did not write them;
+it checked the added sentences by hand and with programs of its own, and
+the references added after the fact-check against their sources.
+Eight of the ten corrections it proposed were then made, in this section
+and in four sentences elsewhere. Of the other two, the one on the
+attribution to OpenAI Codex was left to the author, and the other was set
+aside on the record of an earlier check. None of the checks named in this
+section is journal peer review, a formal verification or a certificate of
+originality or priority.
+
+No step of a proof depends on machine computation. The program
+\texttt{check\_examples.py}, posted with the paper together with its
+saved results and a README, checks 20 examples with rational entries,
+covering all nine projected support and rank types, each under all 24
+permutations of the four sites, in exact rational arithmetic without
+floating point. For each example and permutation it checks all 81
+coefficients of \(LK+PS+QR=\tau c_lc_mc_tc_z\), the whole and projected
+ranks of the six blocks, the projected support type, and which blocks and
+which matching products are zero. For the empty-support examples it also
+checks, in the notation of Proposition~\ref{atlas:empty}, that
+\(q(a)=\tau\) and that \(\sum_i\im B_i\) is totally isotropic, orthogonal
+to \(a\) and of dimension two. The examples include the two of the
+preceding section. All but one use \(\tau=3\); one uses \(\tau=12\). These
+are finite checks of examples. They do not prove that the nine types are
+exhaustive or that the parametrizations are complete, and they do not
+check the dimension or component counts.
+
+\begin{thebibliography}{99}
+\raggedright
+\bibitem{ballico}
+E.~Ballico, \emph{Joins, Secant Varieties and Their Associated Grassmannians},
+Mathematics \textbf{12} (2024), 1274.
+\href{https://doi.org/10.3390/math12091274}{doi:10.3390/math12091274}.
+
+\bibitem{ghl}
+F.~Gesmundo, Y.~I.~Han and B.~Lovitz,
+\emph{Linear preservers of secant varieties and other varieties of tensors},
+Journal of Symbolic Computation \textbf{131} (2025), 102449;
+\href{https://doi.org/10.1016/j.jsc.2025.102449}{doi:10.1016/j.jsc.2025.102449}.
+arXiv:2407.16767.
+
+\bibitem{karam}
+T.~Karam, \emph{Small sunflowers and the structure of slice rank decompositions},
+Journal of the London Mathematical Society \textbf{113} (2026), e70485.
+\href{https://doi.org/10.1112/jlms.70485}{doi:10.1112/jlms.70485}.
+arXiv:2308.07101.
+
+\bibitem{lovitzpetrov}
+B.~Lovitz and F.~Petrov,
+\emph{A generalization of Kruskal's theorem on tensor decomposition},
+Forum of Mathematics, Sigma \textbf{11} (2023), e27, 1--40.
+\href{https://doi.org/10.1017/fms.2023.20}{doi:10.1017/fms.2023.20}.
+
+\bibitem{axis}
+djh58 (repository account), \emph{The general axis bound \(D\le N-2\)},
+provisional, unreviewed repository note,
+\texttt{krenn-gu-n6d4/proof/general\_bound.md}.
+\url{https://github.com/djh58/krenn-gu-n6d4/blob/main/proof/general_bound.md}
+(accessed 10 November 2026).
+
+\bibitem{ekm}
+R.~Elman, N.~Karpenko and A.~Merkurjev,
+\emph{The Algebraic and Geometric Theory of Quadratic Forms},
+American Mathematical Society Colloquium Publications, vol.~56,
+American Mathematical Society, 2008.
+
+\bibitem{ign-geometry}
+Ignoramus, \emph{Dimensions and generic recovery of matching tensors},
+preprint, Zenodo, 2026.
+\href{https://doi.org/10.5281/zenodo.24114656}{doi:10.5281/zenodo.24114656}.
+
+\bibitem{ign-relations}
+Ignoramus, \emph{Complementary tensor relations and bipartite matching
+kernels}, version~3.3, preprint, Zenodo, 2026.
+\href{https://doi.org/10.5281/zenodo.24115283}{doi:10.5281/zenodo.24115283}.
+
+\bibitem{ign-boundary}
+Ignoramus, \emph{Internal-vertex complexity of four-boundary matching
+signatures}, preprint, Zenodo, 2026.
+\href{https://doi.org/10.5281/zenodo.24116409}{doi:10.5281/zenodo.24116409}.
+
+\bibitem{kgz}
+M.~Krenn, X.~Gu and A.~Zeilinger,
+\emph{Quantum experiments and graphs: Multiparty states as coherent
+superpositions of perfect matchings},
+Physical Review Letters \textbf{119} (2017), 240403.
+\href{https://doi.org/10.1103/PhysRevLett.119.240403}{doi:10.1103/PhysRevLett.119.240403}.
+
+\bibitem{naslund}
+E.~Naslund,
+\emph{The partition rank of a tensor and \(k\)-right corners in \(\mathbb F_q^n\)},
+Journal of Combinatorial Theory, Series A \textbf{174} (2020), 105190.
+\href{https://doi.org/10.1016/j.jcta.2019.105190}{doi:10.1016/j.jcta.2019.105190}.
+\end{thebibliography}
+\end{document}
+

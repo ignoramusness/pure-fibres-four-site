@@ -1,0 +1,680 @@
+\section{Whole-tensor parametrizations}\label{atlas:section}
+
+We give the whole tensors in each of the nine types.  In this section
+\((l,m,t,z)\) is an ordering of the four sites, and
+\[
+ L=W_{lm},\quad P=W_{lt},\quad Q=W_{lz},\quad
+ R=W_{mt},\quad S=W_{mz},\quad K=W_{tz}.
+\]
+Juxtaposition denotes tensor product, restored without a sign to the indicated
+site order.  The equation to be solved is
+\begin{equation}\label{atlas:equation}
+ LK+PS+QR=\tau c_lc_mc_tc_z,\qquad \tau\ne0.
+\end{equation}
+Write \(V_i=\C c_i\oplus H_i\), using the fixed complements to identify
+quotients with \(H_i\).  A bar on a vector is its quotient image; on an edge
+tensor it means projection at both endpoints.  In particular,
+\begin{equation}\label{atlas:zero-kernel}
+ \overline{W}_{ij}=0
+ \quad\Longleftrightarrow\quad
+ W_{ij}\in c_i\otimes V_j+V_i\otimes c_j.
+\end{equation}
+A tensor described as free with prescribed projected rank may have arbitrary
+entries involving a \(c\) factor, including entries making its whole matrix
+singular.  All scalar and vector parameters below are complex.
+
+\subsection{Empty projected support}
+
+Let \(E=\C^6\), with coordinates indexed by the six unordered pairs of sites,
+and put
+\[
+ q(x)=x_{12}x_{34}+x_{13}x_{24}+x_{14}x_{23},\qquad
+ b(x,y)=q(x+y)-q(x)-q(y).
+\]
+Let \(S_i\subset E\) be the coordinate subspace on the three edges incident
+to \(i\).
+
+\begin{proposition}\label{atlas:empty}
+The solutions with all six double projections zero are parametrized as follows.
+Choose \(a\in E\) with \(q(a)=\tau\), a totally isotropic subspace
+\(U\subset a^\perp\) for \(b\), and linear maps
+\[
+ B_i:H_i^*\longrightarrow U\cap S_i\qquad(1\le i\le4).
+\]
+Necessarily \(\dim U\le2\).  Define \(u_{ij}\in H_i\) by
+\((B_i(x))_{ij}=x(u_{ij})\), and set
+\begin{equation}\label{atlas:empty-form}
+ W_{ij}=a_{ij}c_ic_j+u_{ij}c_j+c_iu_{ji}.
+\end{equation}
+These formulas give every solution of this type.  The data \(a,B_i\) are
+unique; the choice of \(U\) becomes unique if
+\(U=\sum_i\im B_i\) is required.
+\end{proposition}
+
+\begin{proof}
+By \eqref{atlas:zero-kernel}, every such tuple has the unique form
+\eqref{atlas:empty-form}.  Evaluate the tensor at covectors taking \(c_i\)
+to \(1\), and denote their restrictions to \(H_i\) by \(x_i\).
+The six edge evaluations form the vector
+\(a+\sum_i B_i(x_i)\).  Thus the target identity is equivalent to
+\[
+ q\left(a+\sum_iB_i(x_i)\right)=\tau
+ \quad\text{for all }x_i\in H_i^*.
+\]
+This equivalence loses no coefficients: the expression is multiaffine in
+the four groups of variables, and homogenizing each group recovers the
+original four-tensor.  Comparison of constant, linear and quadratic terms,
+followed by polarization, gives precisely
+\[
+ q(a)=\tau,\qquad b(a,U)=0,\qquad b(U,U)=0,
+ \qquad U=\sum_i\im B_i.
+\]
+The quadratic terms give \(b(\im B_i,\im B_j)=0\) for \(i\ne j\); for
+\(i=j\) this holds because each \(S_i\) is totally isotropic, no two
+edges at \(i\) being complementary.
+Conversely these conditions make the displayed polynomial constant.
+The form \(b\) is nondegenerate, since its matrix has three invertible
+complementary-edge blocks.  As \(b(a,a)=2\tau\ne0\), the space \(a^\perp\)
+is nondegenerate of dimension five.  For an isotropic \(U\) in that space,
+\(U\subset U^\perp\), so \(2\dim U\le5\).
+\end{proof}
+
+\subsection{A single projected edge}
+
+We first record the crossing decomposition needed at a zero opposite edge.
+
+\begin{lemma}\label{atlas:crossing}
+Suppose \(\overline P=\overline Q=\overline R=\overline S=0\) and
+\(PS+QR=\tau c_lc_mc_tc_z\).  The following list is exhaustive.
+\begin{enumerate}
+\item If \(PS=0\), then for some \(a\ne0\),
+\(Q=a c_lc_z\), \(R=(\tau/a)c_mc_t\), and \(P=0\) or \(S=0\).
+The unused partner is any zero-double-projection tensor.
+\item If \(QR=0\), then for some \(a\ne0\),
+\(P=a c_lc_t\), \(S=(\tau/a)c_mc_z\), and \(Q=0\) or \(R=0\).
+The unused partner is any zero-double-projection tensor.
+\item If both products are nonzero, all four edges have whole rank one.
+Choose one exceptional site and one row of the following table:
+\[
+\begin{array}{c|cccc|c}
+ &P&S&Q&R&\text{condition}\\ \hline
+ l&u c_t&s c_mc_z&v c_z&r c_mc_t&su+rv=\tau c_l\\
+ m&p c_lc_t&u c_z&q c_lc_z&v c_t&pu+qv=\tau c_m\\
+ t&c_lu&s c_mc_z&q c_lc_z&c_mv&su+qv=\tau c_t\\
+ z&p c_lc_t&c_mu&c_lv&r c_mc_t&pu+rv=\tau c_z
+\end{array}
+\]
+All named scalar parameters and both vectors \(u,v\) are nonzero.
+In each row the displayed equation explicitly determines \(v\) from \(u\)
+and the two scalars; the only additional restriction is \(v\ne0\).
+The choices of exceptional site may overlap.
+\end{enumerate}
+Every listed choice is a solution.
+\end{lemma}
+
+\begin{proof}
+If one product vanishes, the other equals the nonzero pure tensor.
+Factorization across its own edge bipartition gives the first two cases;
+a disjoint tensor product vanishes exactly when a whole factor vanishes.
+
+Suppose both products are nonzero.  Every edge has rank at most two by
+\eqref{atlas:zero-kernel}.  If \(P\) had rank two, flatten
+\(PS=\tau c_lc_mc_tc_z-QR\) across \((l,z)\mid(m,t)\).
+Its rank is \(\rk(P)\rk(S)\), whereas the right side has rank at most two.
+Thus \(S=s_ms_z\) has rank one and the flattening has rank two.
+Its left and right spaces are respectively
+\[
+ \im_l(P)\otimes\C s_z=\Span(c_lc_z,Q),\qquad
+ \C s_m\otimes\im_t(P)=\Span(c_mc_t,R).
+\]
+It follows that \(S=s c_mc_z\), \(Q=q c_z\), and \(R=c_mv\), with
+\(s\ne0\).  Hence \(sP=\tau c_lc_t-qv\).
+Rank two of \(P\) forces \(q\notin\C c_l\) and \(v\notin\C c_t\),
+contradicting \(\overline P=0\).  The same argument, with the other crossing
+cut, applies to each of \(Q,R,S\).  Thus all four have rank one.
+
+Now \(PS\) and \(QR\) are nonzero simple four-tensors whose sum is nonzero
+and simple.  Their factor lines can differ at at most one site: otherwise
+flattening at one differing site gives two independent factors on each side
+and therefore rank two.  At every other site the common line must be the
+target line \(\C c_i\).  Absorbing the scalar factors gives exactly the four
+rows.  Substitution proves their converses, including the case in which all
+four factor lines agree.
+\end{proof}
+
+\begin{proposition}\label{atlas:single}
+Fix \(r\in\{1,2\}\).  Suppose only \(\overline L\) is nonzero and its rank
+is \(r\).  Then \(K=\kappa c_tc_z\), and all solutions are the following.
+\begin{enumerate}
+\item If \(\kappa=0\), take \(L\) free with projected rank \(r\), and take
+\(P,Q,R,S\) from Lemma~\ref{atlas:crossing}.
+\item If \(\kappa\ne0\) and both crossing products are nonzero, choose
+nonzero \(p,q\in V_l\) and \(r_0,s\in V_m\), and put
+\begin{equation}\label{atlas:single-live}
+ \begin{gathered}
+ P=p c_t,\quad Q=q c_z,\quad R=r_0c_t,\quad S=s c_z,\\
+ L=\kappa^{-1}(\tau c_lc_m-ps-qr_0).
+ \end{gathered}
+\end{equation}
+Require the matrix \(M=\overline p\,\overline s+
+\overline q\,\overline{r_0}\) to have rank \(r\).
+Explicitly, in any quotient bases, this means
+\[
+\begin{cases}
+ M\ne0,\quad
+ \det[\overline p,\overline q]\det[\overline s,\overline{r_0}]=0,
+ &r=1,\\
+ \det[\overline p,\overline q]\det[\overline s,\overline{r_0}]\ne0,
+ &r=2.
+\end{cases}
+\]
+\item If \(\kappa\ne0\) and \(QR=0\), necessarily \(r=1\).
+Choose \(p\in V_l,s\in V_m\) with nonzero quotients, and set
+\[
+ P=p c_t,\quad S=s c_z,\quad
+ L=\kappa^{-1}(\tau c_lc_m-ps).
+\]
+Choose any zero-double-projection \(Q,R\) with \(Q=0\) or \(R=0\).
+\item If \(\kappa\ne0\) and \(PS=0\), necessarily \(r=1\).
+Choose \(q\in V_l,r_0\in V_m\) with nonzero quotients, and set
+\[
+ Q=q c_z,\quad R=r_0c_t,\quad
+ L=\kappa^{-1}(\tau c_lc_m-qr_0).
+\]
+Choose any zero-double-projection \(P,S\) with \(P=0\) or \(S=0\).
+\end{enumerate}
+The branches exhaust all zero and nonzero crossing products.
+\end{proposition}
+
+\begin{proof}
+Project \eqref{atlas:equation} at \(l,m,t\), and then at \(l,m,z\).
+The crossing terms vanish in each case, so the nonzero \(\overline L\)
+forces both partial quotients of \(K\) to vanish.  Hence \(K=\kappa c_tc_z\).
+Write the other edges uniquely as
+\[
+ P=p c_t+c_la,\quad Q=q c_z+c_lb,\quad
+ R=r_0c_t+c_md,\quad S=s c_z+c_me,
+\]
+where \(a,d\in H_t\), \(b,e\in H_z\), and the other vectors are whole.
+Separating the four \((t,z)\) sectors gives the equivalent full system
+\begin{equation}\label{atlas:single-sectors}
+\begin{aligned}
+ \kappa L+ps+qr_0&=\tau c_lc_m,\\
+ c_lsa+qc_md&=0,&
+ pc_me+c_lr_0b&=0,& ae+db&=0.
+\end{aligned}
+\end{equation}
+When \(\kappa=0\), \(L\) drops out and Lemma~\ref{atlas:crossing} applies.
+
+Let \(\kappa\ne0\).  The double projection of the first equation shows
+that at least one of \(\overline p\,\overline s\) and
+\(\overline q\,\overline{r_0}\) is nonzero.  If the first is nonzero,
+projecting the second equation at \(m\) gives \(a=0\), and projecting the
+third at \(l\) gives \(e=0\).  The remaining conditions are
+\(qd=0\), \(r_0b=0\), and \(db=0\).  If \(Q,R\ne0\), these force
+\(b=d=0\): for example \(d\ne0\) would imply \(q=b=0\), hence \(Q=0\).
+If \(QR=0\), the unused partner is unrestricted within
+\eqref{atlas:zero-kernel}.  Interchanging the two crossing products proves
+the corresponding assertion when the second projected summand is nonzero.
+Both whole products cannot vanish, since that would make \(\overline L=0\).
+This proves all the stated forms.  The determinant formula follows by
+writing \(M=[\overline p,\overline q][\overline s,\overline{r_0}]^T\).
+A single nonzero projected outer product has rank one, explaining the last
+two branches.  Finally the displayed formulas solve the entire system
+\eqref{atlas:single-sectors}, which proves every converse.
+\end{proof}
+
+\subsection{Two adjacent projected edges}
+
+Here \(\overline L,\overline P\ne0\) and
+\(\overline Q=\overline R=\overline S=\overline K=0\).
+
+\begin{lemma}\label{atlas:wedge-reduction}
+Every solution in this support has
+\begin{equation}\label{atlas:wedge-reduced}
+ Q=q c_z,\quad S=s c_z,\quad K=k c_z,\qquad
+ Lk+Ps+qR=\tau c_lc_mc_t,
+\end{equation}
+where \(q\ne0\) and \(R\ne0\).  Either both \(\overline s,\overline k\)
+vanish or both are nonzero.
+If both vanish, write \(k=\kappa c_t\), \(s=\sigma c_m\), and use the unique
+decompositions
+\[
+ \begin{split}
+ R&=r_Hc_t+c_mt_H+\rho c_mc_t,\\
+ L&=L_H+xc_m,\qquad P=P_H+yc_t,
+ \end{split}
+\]
+with \(r_H\in H_m\), \(t_H\in H_t\),
+\(L_H\in V_l\otimes H_m\), \(P_H\in V_l\otimes H_t\).
+Then the reduced equation is equivalent to
+\begin{equation}\label{atlas:wedge-scalars}
+ \kappa L_H+qr_H=0,\qquad
+ \sigma P_H+qt_H=0,\qquad
+ \kappa x+\sigma y+\rho q=\tau c_l.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Write
+\(Q=q c_z+c_lu\), \(S=s c_z+c_md\), \(K=k c_z+c_tf\), with
+\(u,d,f\in H_z\).  Projection at \(l,m,z\) gives
+\(\overline Lc_tf=0\), so \(f=0\); projection at \(l,t,z\) similarly gives
+\(d=0\).
+We claim that
+\begin{equation}\label{atlas:two-term-obstruction}
+ Lk+Ps=\tau c_lc_mc_t
+\end{equation}
+is impossible when both double projections are nonzero.
+Its full quotient shows that if one of \(\overline k,\overline s\) is zero,
+then both are zero.  Writing \(k=\kappa c_t,s=\sigma c_m\), projection at
+\(l,m\) and \(l,t\) forces \(\kappa=\sigma=0\), a contradiction.
+If both quotients are nonzero, quotient the whole spaces at \(m,t\) by
+\(\C s,\C k\).  The left side vanishes and the pure target survives,
+again a contradiction.
+Thus \(R\ne0\).  The \(H_z\) component of the original equation is
+\(c_luR=0\), giving \(u=0\).  Cancel \(c_z\) to obtain
+\eqref{atlas:wedge-reduced}; the same obstruction gives \(q\ne0\).
+Full projection of that equation is
+\(\overline L\,\overline k+\overline P\,\overline s=0\), proving the
+zero/nonzero dichotomy.  Finally the \(H_mc_t,c_mH_t,c_mc_t\) sectors are
+exactly \eqref{atlas:wedge-scalars}.
+\end{proof}
+
+\begin{proposition}\label{atlas:wedge11}
+For \(\rk\overline L=\rk\overline P=1\), the following five families are
+disjoint and exhaustive.
+
+\paragraph{I.} Choose \(\eta\ne0\), and take \(L,P\) free with projected
+rank one.  Set
+\[
+ Q=\eta c_lc_z,\qquad R=(\tau/\eta)c_mc_t,\qquad S=K=0.
+\]
+
+\paragraph{II.} Choose \(\kappa\ne0\), \(q\in V_l,r\in V_m\) with
+\(\overline q,\overline r\ne0\), and take \(P\) free with projected rank one.
+Set
+\[
+ L=(\tau c_lc_m-qr)/\kappa,\quad Q=q c_z,\quad R=r c_t,
+ \quad S=0,\quad K=\kappa c_tc_z.
+\]
+
+\paragraph{III.} Choose \(\sigma\ne0\), \(q\in V_l,r\in V_t\) with
+\(\overline q,\overline r\ne0\), and take \(L\) free with projected rank one.
+Set
+\[
+ P=(\tau c_lc_t-qr)/\sigma,\quad Q=q c_z,\quad R=c_mr,
+ \quad S=\sigma c_mc_z,\quad K=0.
+\]
+
+\paragraph{IV.} Choose \(\kappa,\sigma\ne0\), \(q\in V_l\) with
+\(\overline q\ne0\), nonzero \(A\in H_m,B\in H_t\), arbitrary
+\(x\in V_l\) and \(\rho\in\C\).  Put
+\[
+ y=(\tau c_l-\kappa x-\rho q)/\sigma
+\]
+and set
+\begin{equation}\label{atlas:wedge11-IV}
+ \begin{gathered}
+ L=qA+xc_m,\qquad P=qB+yc_t,\qquad Q=q c_z,\\
+ R=-\kappa Ac_t-\sigma c_mB+\rho c_mc_t,\qquad
+ S=\sigma c_mc_z,\qquad K=\kappa c_tc_z.
+ \end{gathered}
+\end{equation}
+
+\paragraph{V.} Choose \(\eta\ne0\), vectors \(v\in V_l,s\in V_m,k\in V_t\)
+with all three quotients nonzero, and arbitrary \(\alpha,\beta\in\C\).
+Set
+\begin{equation}\label{atlas:wedge11-V}
+ \begin{gathered}
+ L=vs+\alpha c_lc_m,\qquad P=-vk+\beta c_lc_t,\qquad Q=\eta c_lc_z,\\
+ R=(\tau c_mc_t-\alpha c_mk-\beta s c_t)/\eta,\qquad
+ S=s c_z,\qquad K=k c_z.
+ \end{gathered}
+\end{equation}
+In IV and V all six whole tensors are nonzero and the two projected
+\(l\)-endpoint lines coincide.  Independent \(l\)-endpoint lines occur
+only in I--III, with the indicated condition imposed on the free tensors.
+\end{proposition}
+
+\begin{proof}
+Use Lemma~\ref{atlas:wedge-reduction}.  If \(\overline k=\overline s=0\),
+consider \eqref{atlas:wedge-scalars}.
+For \(\kappa=\sigma=0\), its first two equations give \(r_H=t_H=0\), and
+\(\rho q=\tau c_l\) gives I.
+For \(\kappa\ne0,\sigma=0\), we have \(t_H=0\) and
+\(\kappa L=\tau c_lc_m-q(r_H+\rho c_m)\).  The nonzero projected rank
+forces \(\overline q,r_H\ne0\), giving II.  The opposite scalar choice
+gives III.  If both scalars are nonzero, set
+\(A=-r_H/\kappa\), \(B=-t_H/\sigma\).  Then the first two equations give
+\(L_H=qA,P_H=qB\), with \(\overline q,A,B\ne0\), and the last equation
+determines \(y\).  This is IV.
+
+Suppose now \(\overline s,\overline k\ne0\).  Quotient
+\eqref{atlas:wedge-reduced} at \(m,t\) by the actual lines \(\C s,\C k\).
+The target survives, so the remaining equality \(qR'=\tau c_l[c_m][c_t]\)
+forces \(q=\eta c_l\) with \(\eta\ne0\).
+Projection at \(l\) gives
+\(L_lk+P_ls=0\).  Quotienting at \(m\) by \(\C s\) and then canceling
+the nonzero vectors shows
+\(L_l=us,P_l=-uk\), for a nonzero \(u\in H_l\).
+Consequently \(L=us+c_lA_m\) and \(P=-uk+c_lB_t\).
+After substitution, the remaining equation is
+\[
+ A_mk+sB_t+\eta R=\tau c_mc_t.
+\]
+Its double quotient is
+\(\overline{A_m}\,\overline k+\overline s\,\overline{B_t}=0\).
+Because \(\overline s,\overline k\ne0\), contraction by a functional
+nonzero on either factor gives
+\[
+ A_m=\gamma s+\alpha c_m,\qquad
+ B_t=-\gamma k+\beta c_t
+\]
+for scalars \(\gamma,\alpha,\beta\).  Set \(v=u+\gamma c_l\).
+This gives exactly V.
+
+For completeness the converses are whole-tensor identities.  In I only
+\(qR\) contributes.  In II and III its non-target part cancels the corresponding
+part of \(Lk\) or \(Ps\).  In IV the sum is
+\[
+ (\kappa x+\sigma y+\rho q)c_mc_t=\tau c_lc_mc_t,
+\]
+since the terms in \(qAc_t\) and \(qc_mB\) cancel separately.
+In V the terms \(vsk\), \(\alpha c_lc_mk\), and \(\beta c_ls c_t\)
+each cancel, leaving the same target.  Multiplying by \(c_z\) proves
+\eqref{atlas:equation}.  The prescribed projected ranks follow from the
+displayed nonzero outer factors.
+
+I--III are distinguished by which of \(S,K\) vanish.  In IV both are
+nonzero with zero leaf quotients; in V both leaf quotients are nonzero.
+Thus the families are disjoint.  IV and V visibly have common projected
+\(l\)-endpoint lines.  Conversely, if the lines of \(\overline L\) and
+\(\overline P\) are independent, the equation
+\(\overline L\,\overline k+\overline P\,\overline s=0\) forces both
+leaf quotients zero, and IV still has coincident lines.  This gives the
+last assertion.
+\end{proof}
+
+\begin{remark}\label{atlas:wedge-parameters}
+With the fixed complements, the parameters in each wedge family are
+recoverable from the whole tuple.  First recover \(q,s,k\) by contraction
+against the covector taking \(c_z\) to one and vanishing on \(H_z\).
+In IV, the unique decomposition of \(R\) gives \(A,B,\rho\), and
+contraction of \(L\) at \(c_m\) gives \(x\).  In V, contraction of \(L\)
+against any covector vanishing on \(c_m\) and taking \(s\) to one recovers
+\(v\); the residual pure tensors recover \(\alpha,\beta\).
+The simpler recoveries in I--III follow directly from their formulas.
+\end{remark}
+
+\begin{proposition}\label{atlas:wedge21}
+For \(\rk\overline L=2\), \(\rk\overline P=1\), and the other four
+projections zero, \(K=0\) and \(L\) is free with projected rank two.
+The remaining tensors have precisely one of the following forms:
+\begin{enumerate}
+\item \(S=0\), \(Q=a c_lc_z\), \(R=(\tau/a)c_mc_t\), with \(a\ne0\),
+and \(P\) free with projected rank one;
+\item for \(\sigma\ne0\), \(u\in V_l,v\in V_t\) with
+\(\overline u,\overline v\ne0\),
+\[
+ S=\sigma c_mc_z,\quad Q=u c_z,\quad R=c_mv,\quad
+ P=(\tau c_lc_t-uv)/\sigma.
+\]
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+In \eqref{atlas:wedge-reduced}, write \(\overline P=xy\) with
+\(x,y\ne0\).  Full projection gives
+\(\overline L\,\overline k+x\overline s\,y=0\).
+A nonzero functional at \(l\) annihilating \(x\) cannot annihilate the
+rank-two tensor \(\overline L\); hence \(\overline k=0\), and then
+\(\overline s=0\).  In \eqref{atlas:wedge-scalars}, projection of the
+first equation at \(l\) is a rank-two tensor multiplied by \(\kappa\)
+plus one outer product.  Thus \(\kappa=0\), and then \(r_H=0\) because
+\(q\ne0\).  If \(\sigma=0\), the remaining equations give the first
+branch.  Otherwise write \(u=q\), \(v=t_H+\rho c_t\); they give the second
+branch and its nonzero quotient conditions.  Its whole \(P\) has rank two,
+since \((c_l,u)\) and \((c_t,v)\) are independent pairs.  Direct substitution
+proves both converses, with no further restriction on \(L\).
+\end{proof}
+
+\begin{proposition}\label{atlas:wedge22}
+For \(\rk\overline L=\rk\overline P=2\), and the other four projections
+zero, all solutions are
+\[
+ S=K=0,\qquad Q=a c_lc_z,\qquad R=(\tau/a)c_mc_t,\qquad a\ne0,
+\]
+with \(L,P\) free with projected rank two.
+\end{proposition}
+
+\begin{proof}
+Full projection of \eqref{atlas:wedge-reduced} gives
+\(\overline L\,\overline k+\overline P\,\overline s=0\).
+If \(\overline k\ne0\), contract at \(t\) with a nonzero functional
+annihilating it.  Rank two of \(\overline P\) forces \(\overline s=0\),
+and the original equality then forces \(\overline k=0\), a contradiction.
+Thus both leaf quotients vanish.  Projecting the first two equations of
+\eqref{atlas:wedge-scalars} at \(l\), rank two versus rank at most one
+gives \(\kappa=\sigma=0\).  The remaining equations give the stated pure
+\(Q,R\).  Their product is the target, proving the converse for arbitrary
+whole lifts of \(L,P\).
+\end{proof}
+
+\subsection{The two triangle types}
+
+The triangle is on \(l,m,t\), with \(z\) its isolated projected vertex.
+The unique pure spoke from Lemma~\ref{support:triangle} distinguishes one
+of these three vertices.  In the next statement call that vertex \(t\).
+Choosing each of the three possible vertices in turn covers all labelled
+triangle solutions.
+
+\begin{proposition}\label{atlas:triangle}
+Choose \(\kappa\ne0\), \(q,v\in V_l\), \(s,w\in V_m\), and
+\(h\in H_t\), with \(\overline q,\overline s,h\ne0\), and set
+\begin{equation}\label{atlas:triangle-form}
+ \begin{gathered}
+ Q=q c_z,\qquad S=s c_z,\qquad K=\kappa c_tc_z,\\
+ P=qh+vc_t,\qquad R=-sh+wc_t,\qquad
+ L=(\tau c_lc_m-vs-qw)/\kappa.
+ \end{gathered}
+\end{equation}
+Extend \(\overline q\) to a quotient basis \((\overline q,e)\) at \(l\),
+and \(\overline s\) to a quotient basis \((\overline s,f)\) at \(m\).
+Write
+\[
+ \overline v=v_1\overline q+v_2e,\qquad
+ \overline w=w_1\overline s+w_2f,\qquad d=v_1+w_1.
+\]
+The exact additional restrictions for the two triangle types are
+\begin{equation}\label{atlas:triangle-test}
+ \begin{array}{ll}
+ (1,1,1):&v_2w_2=0,\quad(d,v_2,w_2)\ne(0,0,0),\\
+ (2,1,1):&v_2w_2\ne0.
+ \end{array}
+\end{equation}
+In the second row \(L\) is the rank-two projected edge.
+These formulas exhaust both types and give their full converses.
+For the fixed complement \(H_t\), their parameters are unique once the
+pure-spoke vertex and the ordering of the other two vertices are fixed.
+\end{proposition}
+
+\begin{proof}
+Apply Lemma~\ref{support:triangle}, with its pure-spoke vertex taken as \(t\).
+It gives the whole forms \eqref{atlas:triangle-form} with a lift of a
+nonzero quotient vector in the \(t\) slot.  Changing that lift by
+\(h\mapsto h+\lambda c_t\) changes the remaining vectors by
+\[
+ v\mapsto v-\lambda q,\qquad w\mapsto w+\lambda s.
+\]
+These simultaneous changes leave every tensor unchanged, since
+\(vs+qw\) is unchanged.  They allow and uniquely determine the choice
+\(h\in H_t\).
+
+The two incident projections are
+\(\overline P=\overline q\,h\) and
+\(\overline R=-\overline s\,h\), both nonzero of rank one.  The unscaled
+numerator of the opposite double projection has matrix
+\[
+ \overline v\,\overline s+\overline q\,\overline w
+ \quad\longleftrightarrow\quad
+ \begin{pmatrix}d&w_2\\v_2&0\end{pmatrix}.
+\]
+Its determinant is \(-v_2w_2\).  A nonzero matrix of this size has rank one
+exactly when its determinant vanishes, and rank two exactly when it does
+not.  This proves \eqref{atlas:triangle-test}, including the branches
+\(v_2=0\) and \(w_2=0\) and their intersection; the excluded zero triple
+is exactly a vanished opposite projection.
+
+Conversely the three products from \eqref{atlas:triangle-form} are
+\[
+\begin{aligned}
+ LK&=\tau c_lc_mc_tc_z-vsc_tc_z-qwc_tc_z,\\
+ PS&=qshc_z+vsc_tc_z,\\
+ QR&=-qshc_z+qwc_tc_z.
+\end{aligned}
+\]
+Their sum is the required whole target, with all scalar components retained.
+The rank test gives the desired support exactly.
+Finally \(Q,S,K\) recover \(q,s,\kappa\) by contraction at \(c_z\).
+The partial \(t\)-projection of \(P\) recovers the quotient of \(h\),
+and the fixed complement recovers \(h\) itself.  The residual tensors in
+\(P,R\) then recover \(v,w\).  This proves uniqueness.
+\end{proof}
+
+\begin{remark}\label{atlas:triangle-ranks}
+All six tensors and all three products are nonzero in either triangle type.
+For type \((2,1,1)\), the pairs \((\overline q,\overline v)\) and
+\((\overline s,\overline w)\) are independent.  In the bases
+\((c_l,q,v)\), \((c_m,s,w)\), the matrix of \(L\) is
+\[
+ \kappa^{-1}
+ \begin{pmatrix}\tau&0&0\\0&0&-1\\0&-1&0\end{pmatrix}.
+\]
+Thus its whole rank is three, while \(P,R\) have whole rank two and the
+spokes have rank one.  For type \((1,1,1)\), either
+\(\Span(c_l,q,v)\) or \(\Span(c_m,s,w)\) has dimension at most two,
+so all three triangle tensors have rank at most two.  Vanishing individual
+coordinates or further whole-rank drops require no additional chart.
+\end{remark}
+
+\subsection{The four-cycle}
+
+\begin{proposition}\label{atlas:cycle}
+Suppose \(\overline L=\overline K=0\), and
+\(\overline P,\overline Q,\overline R,\overline S\) are nonzero of rank one.
+All solutions are exactly
+\begin{equation}\label{atlas:cycle-form}
+ \begin{gathered}
+ L=\gamma c_lc_m,\qquad K=(\tau/\gamma)c_tc_z,\qquad\gamma\ne0,\\
+ P=u_lu_t,\qquad Q=u_lu_z,\qquad
+ R=u_mu_t,\qquad S=-u_mu_z,
+ \end{gathered}
+\end{equation}
+where \(u_i\in V_i\) and \(\overline{u_i}\ne0\) for all four sites.
+All six whole tensors have rank one, and
+\(PS+QR=0\), \(LK=\tau c_lc_mc_tc_z\).
+\end{proposition}
+
+\begin{proof}
+Full projection gives
+\(\overline P\,\overline S=-\overline Q\,\overline R\ne0\).
+Equality of nonzero simple four-tensors gives equal endpoint lines at
+every site.  The scalar factors can be chosen consistently: first factor
+\(\overline P=a_la_t\), then \(\overline Q=a_la_z\), then
+\(\overline R=a_ma_t\); the equality forces
+\(\overline S=-a_ma_z\).  Here each \(a_i\) is a nonzero vector in \(H_i\).
+Retain all whole lifts by writing
+\[
+\begin{aligned}
+ P&=a_la_t+p_lc_t+c_lp_t+p_0c_lc_t,\\
+ Q&=a_la_z+q_lc_z+c_lq_z+q_0c_lc_z,\\
+ R&=a_ma_t+r_mc_t+c_mr_t+r_0c_mc_t,\\
+ S&=-a_ma_z+s_mc_z+c_ms_z+s_0c_mc_z,
+\end{aligned}
+\]
+with the subscripted vector at site \(i\) in \(H_i\).
+Since \(\overline L=\overline K=0\), their product contributes no
+three-\(H\) component.  The four three-\(H\) components of the full equation
+therefore give
+\[
+ a_ls_m+q_la_m=0,\quad -p_la_m+a_lr_m=0,\quad
+ a_ts_z+r_ta_z=0,\quad -p_ta_z+a_tq_z=0.
+\]
+For nonzero \(a,b\), an equality \(ax+yb=0\) forces
+\(x=\lambda b,y=-\lambda a\), including \(\lambda=0\): quotienting by
+either fixed line and then canceling the other factor proves this.
+Consequently there are scalars \(\alpha,\beta,\delta,\epsilon\) with
+\[
+\begin{gathered}
+ p_l=\alpha a_l,\quad r_m=\alpha a_m,\quad
+ q_l=-\beta a_l,\quad s_m=\beta a_m,\\
+ p_t=\delta a_t,\quad q_z=\delta a_z,\quad
+ r_t=\epsilon a_t,\quad s_z=-\epsilon a_z.
+\end{gathered}
+\]
+Define whole vectors
+\[
+ x_l=a_l+\delta c_l,\quad x_m=a_m+\epsilon c_m,\quad
+ x_t=a_t+\alpha c_t,\quad x_z=a_z-\beta c_z.
+\]
+Expansion gives
+\begin{equation}\label{atlas:cycle-residual}
+ \begin{gathered}
+ P=x_lx_t+A c_lc_t,\qquad Q=x_lx_z+B c_lc_z,\\
+ R=x_mx_t+C c_mc_t,\qquad S=-x_mx_z+D c_mc_z,
+ \end{gathered}
+\end{equation}
+where
+\(A=p_0-\delta\alpha\), \(B=q_0+\delta\beta\),
+\(C=r_0-\epsilon\alpha\), \(D=s_0-\epsilon\beta\).
+All \(\overline{x_i}\) are nonzero.
+
+Choose complements to \(\C c_i\) containing \(x_i\); this is merely a
+choice of basis for the following coefficient comparison, and does not
+change the tensors or \(\tau\).  Write the still unrestricted missing edges
+in these complements as
+\[
+ L=\xi_lc_m+c_l\eta_m+\ell c_lc_m,\qquad
+ K=\rho_tc_z+c_t\sigma_z+\kappa c_tc_z.
+\]
+The four cross-pair components, the four single-site components, and the
+constant component of \eqref{atlas:equation} are respectively
+\begin{equation}\label{atlas:cycle-coefficients}
+\begin{gathered}
+ \xi_l\rho_t=-D x_lx_t,\qquad
+ \xi_l\sigma_z=-C x_lx_z,\\
+ \eta_m\rho_t=-B x_mx_t,\qquad
+ \eta_m\sigma_z=A x_mx_z,\\
+ \kappa\xi_l=\kappa\eta_m=\ell\rho_t=\ell\sigma_z=0,\qquad
+ \ell\kappa+AD+BC=\tau.
+\end{gathered}
+\end{equation}
+These are all remaining coefficients: the other two pair components are
+identically zero, the three-site components have just been eliminated,
+and the four-site components cancel in \eqref{atlas:cycle-residual}.
+
+Multiply the first and fourth pair equations in
+\eqref{atlas:cycle-coefficients}, and then the second and third, restoring
+both to the same site order.  Their left sides are the identical tensor
+\(\xi_l\eta_m\rho_t\sigma_z\).  Since \(x_lx_mx_tx_z\ne0\), their right
+sides give \(-DA=CB\), so \(AD+BC=0\).
+This argument divides by none of the unknown vectors or residual scalars.
+The final equation now gives \(\ell\kappa=\tau\ne0\).
+The single-site equations force \(\xi_l=\eta_m=\rho_t=\sigma_z=0\),
+and the pair equations force \(A=B=C=D=0\).
+Taking \(\gamma=\ell\) and \(u_i=x_i\) yields
+\eqref{atlas:cycle-form} in the original spaces.
+
+Conversely let the parameters in \eqref{atlas:cycle-form} be given, and put
+\(U=u_lu_mu_tu_z\).  Then \(LK=\tau c_lc_mc_tc_z\), \(PS=-U\), and
+\(QR=U\).  The double projections have exactly the prescribed ranks,
+and every whole factor is nonzero of rank one.  This proves the full
+converse, including arbitrary \(c\)-components in the four vectors.
+\end{proof}
+
+The propositions describe whole tensors, rather than only quotient data.
+Every displayed parametrization therefore includes all permitted cancellations
+and whole-rank drops.  The list is finite at the level of support and rank
+types; Proposition~\ref{atlas:empty} uses geometric parameters, and no
+classification into finitely many orbits is asserted.
