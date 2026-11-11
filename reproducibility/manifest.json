@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "run_command": "python check_examples.py",
+  "tested_python": "3.12.14",
+  "dependencies": "Python standard library only",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 5294,
+      "sha256": "b4cd58aedb88e9df158f4109be945b75034a3b515b0a923a66355af3b560abc4"
+    },
+    {
+      "path": "check_examples.py",
+      "bytes": 15912,
+      "sha256": "7223c367ec6830f5b6c3bd06f3146ca5cf34fd839f2808ad1f1186a8345c288a"
+    },
+    {
+      "path": "results.json",
+      "bytes": 469352,
+      "sha256": "9475c3a7d8a5c4fc2981f96f07330d7f825e3b7a8be3daa0d8035e3e05b2806e"
+    }
+  ],
+  "two_fresh_runs_byte_identical": true,
+  "examples": 20,
+  "site_permutations_per_example": 24,
+  "labelled_tuples": 480,
+  "exact_tensor_coefficient_equalities": 38880,
+  "whole_rank_assertions": 2880,
+  "quotient_rank_assertions": 2880,
+  "whole_activity_assertions": 2880,
+  "matching_product_activity_assertions": 1440,
+  "scope": "Finite rational points and their site permutations only; not an exhaustive proof or geometry certification."
+}
